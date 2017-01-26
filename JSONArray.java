@@ -83,7 +83,7 @@ import java.util.Map;
 public class JSONArray implements Iterable<Object> {
 
     /**
-     * The arrayList where the JSONArray's properties are kept.
+     * The ArrayList where the JSONArray's properties are kept.
      */
     private final ArrayList<Object> myArrayList;
 
@@ -419,7 +419,7 @@ public class JSONArray implements Iterable<Object> {
     /**
      * Make a string from the contents of this JSONArray. The
      * <code>separator</code> string is inserted between each element. Warning:
-     * This method assumes that the data structure is acyclical.
+     * This method assumes that the data structure is acyclic.
      *
      * @param separator
      *            A string that will be inserted between the elements.
@@ -703,7 +703,7 @@ public class JSONArray implements Iterable<Object> {
     /**
      * Get the optional string value associated with an index. It returns an
      * empty string if there is no value at that index. If the value is not a
-     * string and is not null, then it is coverted to a string.
+     * string and is not null, then it is converted to a string.
      *
      * @param index
      *            The index must be between 0 and length() - 1.
@@ -1076,7 +1076,7 @@ public class JSONArray implements Iterable<Object> {
      * correct JSON text then null will be returned instead. This could occur if
      * the array contains an invalid number.
      * <p>
-     * Warning: This method assumes that the data structure is acyclical.
+     * Warning: This method assumes that the data structure is acyclic.
      *
      * @return a printable, displayable, transmittable representation of the
      *         array.
@@ -1090,8 +1090,8 @@ public class JSONArray implements Iterable<Object> {
     }
 
     /**
-     * Make a prettyprinted JSON text of this JSONArray. Warning: This method
-     * assumes that the data structure is acyclical.
+     * Make a pretty-printed JSON text of this JSONArray. Warning: This method
+     * assumes that the data structure is acyclic.
      *
      * @param indentFactor
      *            The number of spaces to add to each level of indentation.
@@ -1112,7 +1112,7 @@ public class JSONArray implements Iterable<Object> {
      * Write the contents of the JSONArray as JSON text to a writer. For
      * compactness, no whitespace is added.
      * <p>
-     * Warning: This method assumes that the data structure is acyclical.
+     * Warning: This method assumes that the data structure is acyclic.
      *
      * @return The writer.
      * @throws JSONException
@@ -1125,14 +1125,14 @@ public class JSONArray implements Iterable<Object> {
      * Write the contents of the JSONArray as JSON text to a writer. For
      * compactness, no whitespace is added.
      * <p>
-     * Warning: This method assumes that the data structure is acyclical.
+     * Warning: This method assumes that the data structure is acyclic.
      *
      * @param writer
      *            Writes the serialized JSON
      * @param indentFactor
      *            The number of spaces to add to each level of indentation.
      * @param indent
-     *            The indention of the top level.
+     *            The indentation of the top level.
      * @return The writer.
      * @throws JSONException
      */
@@ -1178,7 +1178,7 @@ public class JSONArray implements Iterable<Object> {
      * If an element in the array is a JSONArray or JSONObject it will also
      * be converted.
      * <p>
-     * Warning: This method assumes that the data structure is acyclical.
+     * Warning: This method assumes that the data structure is acyclic.
      *
      * @return a java.util.List containing the elements of this array
      */
