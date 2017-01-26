@@ -138,7 +138,7 @@ public class JSONPointer {
         if (pointer == null) {
             throw new NullPointerException("pointer cannot be null");
         }
-        if (pointer.isEmpty() || pointer.equals("#")) {
+        if (pointer.isEmpty() || "#".equals(pointer)) {
             refTokens = Collections.emptyList();
             return;
         }

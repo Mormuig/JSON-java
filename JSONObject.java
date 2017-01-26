@@ -512,12 +512,12 @@ public class JSONObject {
     public boolean getBoolean(String key) throws JSONException {
         Object object = this.get(key);
         if (object.equals(Boolean.FALSE)
-                || (object instanceof String && ((String) object)
-                        .equalsIgnoreCase("false"))) {
+                || (object instanceof String && ("false"
+                        .equalsIgnoreCase((String) object)))) {
             return false;
         } else if (object.equals(Boolean.TRUE)
-                || (object instanceof String && ((String) object)
-                        .equalsIgnoreCase("true"))) {
+                || (object instanceof String && ("true"
+                        .equalsIgnoreCase((String) object)))) {
             return true;
         }
         throw new JSONException("JSONObject[" + quote(key)
@@ -1521,16 +1521,16 @@ public class JSONObject {
      * @return A simple JSON value.
      */
     public static Object stringToValue(String string) {
-        if (string.equals("")) {
+        if (string.isEmpty()) {
             return string;
         }
-        if (string.equalsIgnoreCase("true")) {
+        if ("true".equalsIgnoreCase(string)) {
             return Boolean.TRUE;
         }
-        if (string.equalsIgnoreCase("false")) {
+        if ("false".equalsIgnoreCase(string)) {
             return Boolean.FALSE;
         }
-        if (string.equalsIgnoreCase("null")) {
+        if ("null".equalsIgnoreCase(string)) {
             return JSONObject.NULL;
         }
 
