@@ -49,12 +49,12 @@ public class JSONML {
     private static Object parse(XMLTokener x, boolean arrayForm, JSONArray ja, boolean keepStrings) {
         String     attribute;
         char       c;
-        String     closeTag = null;
+        String     closeTag;
         int        i;
-        JSONArray  newja = null;
-        JSONObject newjo = null;
+        JSONArray  newja;
+        JSONObject newjo;
         Object     token;
-        String     tagName = null;
+        String     tagName;
 
 // Test for and skip past these forms:
 //      <!-- ... -->
@@ -205,7 +205,7 @@ public class JSONML {
                                 throw x.syntaxError("Mismatched '" + tagName +
                                         "' and '" + closeTag + "'");
                             }
-                            tagName = null;
+
                             if (!arrayForm && newja.length() > 0) {
                                 newjo.put("childNodes", newja);
                             }

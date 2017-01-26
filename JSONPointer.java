@@ -142,20 +142,20 @@ public class JSONPointer {
             refTokens = Collections.emptyList();
             return;
         }
+        String varPointer;
         if (pointer.startsWith("#/")) {
-            pointer = pointer.substring(2);
             try {
-                pointer = URLDecoder.decode(pointer, ENCODING);
+                varPointer = URLDecoder.decode(pointer.substring(2), ENCODING);
             } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
             }
         } else if (pointer.startsWith("/")) {
-            pointer = pointer.substring(1);
+            varPointer = pointer.substring(1);
         } else {
             throw new IllegalArgumentException("a JSON pointer should start with '/' or '#/'");
         }
         refTokens = new ArrayList<String>();
-        for (String token : pointer.split("/")) {
+        for (String token : varPointer.split("/")) {
             refTokens.add(unescape(token));
         }
     }

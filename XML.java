@@ -266,7 +266,7 @@ public class XML {
     private static boolean parse(XMLTokener x, JSONObject context, String name, boolean keepStrings) {
         char c;
         int i;
-        JSONObject jsonobject = null;
+        JSONObject jsonobject;
         String string;
         String tagName;
         Object token;
@@ -536,7 +536,6 @@ public class XML {
                 } else if (value.getClass().isArray()) {
                     value = new JSONArray(value);
                 }
-                string = value instanceof String ? (String) value : null;
 
                 // Emit content in body
                 if ("content".equals(key)) {
@@ -593,13 +592,17 @@ public class XML {
 
         }
 
+        Object tempObject;
+        
         if (object != null) {
             if (object.getClass().isArray()) {
-                object = new JSONArray(object);
+                tempObject = new JSONArray(object);
+            } else {
+                tempObject = object;
             }
 
-            if (object instanceof JSONArray) {
-                ja = (JSONArray) object;
+            if (tempObject instanceof JSONArray) {
+                ja = (JSONArray) tempObject;
                 for (Object val : ja) {
                     // XML does not have good support for arrays. If an array
                     // appears in a place where XML is lacking, synthesize an
@@ -608,9 +611,11 @@ public class XML {
                 }
                 return sb.toString();
             }
+        } else {
+            tempObject = null;
         }
 
-        string = (object == null) ? "null" : escape(object.toString());
+        string = (tempObject == null) ? "null" : escape(tempObject.toString());
         return (tagName == null) ? "\"" + string + "\""
                 : (string.length() == 0) ? "<" + tagName + "/>" : "<" + tagName
                         + ">" + string + "</" + tagName + ">";

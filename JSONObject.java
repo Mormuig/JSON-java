@@ -1810,8 +1810,7 @@ public class JSONObject {
             final String numberAsString = numberToString((Number) value);
             try {
                 // Use the BigDecimal constructor for it's parser to validate the format.
-                @SuppressWarnings("unused")
-                BigDecimal testNum = new BigDecimal(numberAsString);
+                new BigDecimal(numberAsString);
                 // Close enough to a JSON number that we will use it unquoted
                 writer.write(numberAsString);
             } catch (NumberFormatException ex){
