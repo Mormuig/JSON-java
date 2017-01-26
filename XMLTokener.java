@@ -60,7 +60,7 @@ public class XMLTokener extends JSONTokener {
      * @return The string up to the <code>]]&gt;</code>.
      * @throws JSONException If the <code>]]&gt;</code> is not found.
      */
-    public String nextCDATA() throws JSONException {
+    public String nextCDATA() {
         char         c;
         int          i;
         StringBuilder sb = new StringBuilder();
@@ -89,7 +89,7 @@ public class XMLTokener extends JSONTokener {
      * source text.
      * @throws JSONException
      */
-    public Object nextContent() throws JSONException {
+    public Object nextContent() {
         char         c;
         StringBuilder sb;
         do {
@@ -124,7 +124,7 @@ public class XMLTokener extends JSONTokener {
      * @return  A Character or an entity String if the entity is not recognized.
      * @throws JSONException If missing ';' in XML entity.
      */
-    public Object nextEntity(char ampersand) throws JSONException {
+    public Object nextEntity(char ampersand) {
         StringBuilder sb = new StringBuilder();
         for (;;) {
             char c = next();
@@ -151,7 +151,7 @@ public class XMLTokener extends JSONTokener {
      * @throws JSONException If a string is not properly closed or if the XML
      *  is badly structured.
      */
-    public Object nextMeta() throws JSONException {
+    public Object nextMeta() {
         char c;
         char q;
         do {
@@ -216,7 +216,7 @@ public class XMLTokener extends JSONTokener {
      * @return a String or a Character.
      * @throws JSONException If the XML is not well formed.
      */
-    public Object nextToken() throws JSONException {
+    public Object nextToken() {
         char c;
         char q;
         StringBuilder sb;
@@ -298,7 +298,7 @@ public class XMLTokener extends JSONTokener {
      * @param to A string to skip past.
      * @throws JSONException
      */
-    public boolean skipPast(String to) throws JSONException {
+    public boolean skipPast(String to) {
         boolean b;
         char c;
         int i;

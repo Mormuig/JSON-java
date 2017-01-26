@@ -46,12 +46,7 @@ public class JSONML {
      * @return A JSONArray if the value is the outermost tag, otherwise null.
      * @throws JSONException
      */
-    private static Object parse(
-        XMLTokener x,
-        boolean    arrayForm,
-        JSONArray  ja,
-        boolean keepStrings
-    ) throws JSONException {
+    private static Object parse(XMLTokener x, boolean arrayForm, JSONArray ja, boolean keepStrings) {
         String     attribute;
         char       c;
         String     closeTag = null;
@@ -246,7 +241,7 @@ public class JSONML {
      * @return A JSONArray containing the structured data from the XML string.
      * @throws JSONException Thrown on error converting to a JSONArray
      */
-    public static JSONArray toJSONArray(String string) throws JSONException {
+    public static JSONArray toJSONArray(String string) {
         return (JSONArray)parse(new XMLTokener(string), true, null, false);
     }
 
@@ -268,7 +263,7 @@ public class JSONML {
      * @return A JSONArray containing the structured data from the XML string.
      * @throws JSONException Thrown on error converting to a JSONArray
      */
-    public static JSONArray toJSONArray(String string, boolean keepStrings) throws JSONException {
+    public static JSONArray toJSONArray(String string, boolean keepStrings) {
         return (JSONArray)parse(new XMLTokener(string), true, null, keepStrings);
     }
 
@@ -290,7 +285,7 @@ public class JSONML {
      * @return A JSONArray containing the structured data from the XML string.
      * @throws JSONException Thrown on error converting to a JSONArray
      */
-    public static JSONArray toJSONArray(XMLTokener x, boolean keepStrings) throws JSONException {
+    public static JSONArray toJSONArray(XMLTokener x, boolean keepStrings) {
         return (JSONArray)parse(x, true, null, keepStrings);
     }
 
@@ -307,7 +302,7 @@ public class JSONML {
      * @return A JSONArray containing the structured data from the XML string.
      * @throws JSONException Thrown on error converting to a JSONArray
      */
-    public static JSONArray toJSONArray(XMLTokener x) throws JSONException {
+    public static JSONArray toJSONArray(XMLTokener x) {
         return (JSONArray)parse(x, true, null, false);
     }
 
@@ -325,7 +320,7 @@ public class JSONML {
      * @return A JSONObject containing the structured data from the XML string.
      * @throws JSONException Thrown on error converting to a JSONObject
      */
-    public static JSONObject toJSONObject(String string) throws JSONException {
+    public static JSONObject toJSONObject(String string) {
         return (JSONObject)parse(new XMLTokener(string), false, null, false);
     }
     
@@ -345,7 +340,7 @@ public class JSONML {
      * @return A JSONObject containing the structured data from the XML string.
      * @throws JSONException Thrown on error converting to a JSONObject
      */
-    public static JSONObject toJSONObject(String string, boolean keepStrings) throws JSONException {
+    public static JSONObject toJSONObject(String string, boolean keepStrings) {
         return (JSONObject)parse(new XMLTokener(string), false, null, keepStrings);
     }
 
@@ -363,7 +358,7 @@ public class JSONML {
      * @return A JSONObject containing the structured data from the XML string.
      * @throws JSONException Thrown on error converting to a JSONObject
      */
-    public static JSONObject toJSONObject(XMLTokener x) throws JSONException {
+    public static JSONObject toJSONObject(XMLTokener x) {
            return (JSONObject)parse(x, false, null, false);
     }
 
@@ -383,7 +378,7 @@ public class JSONML {
      * @return A JSONObject containing the structured data from the XML string.
      * @throws JSONException Thrown on error converting to a JSONObject
      */
-    public static JSONObject toJSONObject(XMLTokener x, boolean keepStrings) throws JSONException {
+    public static JSONObject toJSONObject(XMLTokener x, boolean keepStrings) {
            return (JSONObject)parse(x, false, null, keepStrings);
     }
 
@@ -394,7 +389,7 @@ public class JSONML {
      * @return An XML string.
      * @throws JSONException Thrown on error converting to a string
      */
-    public static String toString(JSONArray ja) throws JSONException {
+    public static String toString(JSONArray ja) {
         int                 i;
         JSONObject          jo;
         String              key;
@@ -478,7 +473,7 @@ public class JSONML {
      * @return An XML string.
      * @throws JSONException Thrown on error converting to a string
      */
-    public static String toString(JSONObject jo) throws JSONException {
+    public static String toString(JSONObject jo) {
         StringBuilder sb = new StringBuilder();
         int                 i;
         JSONArray           ja;

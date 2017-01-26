@@ -238,7 +238,7 @@ public class XML {
      *            A string.
      * @throws JSONException Thrown if the string contains whitespace or is empty.
      */
-    public static void noSpace(String string) throws JSONException {
+    public static void noSpace(String string) {
         int i, length = string.length();
         if (length == 0) {
             throw new JSONException("Empty string.");
@@ -263,8 +263,7 @@ public class XML {
      * @return true if the close tag is processed.
      * @throws JSONException
      */
-    private static boolean parse(XMLTokener x, JSONObject context, String name, boolean keepStrings)
-            throws JSONException {
+    private static boolean parse(XMLTokener x, JSONObject context, String name, boolean keepStrings) {
         char c;
         int i;
         JSONObject jsonobject = null;
@@ -452,7 +451,7 @@ public class XML {
      * @return A JSONObject containing the structured data from the XML string.
      * @throws JSONException Thrown if there is an errors while parsing the string
      */
-    public static JSONObject toJSONObject(String string) throws JSONException {
+    public static JSONObject toJSONObject(String string) {
         return toJSONObject(string, false);
     }
 
@@ -478,7 +477,7 @@ public class XML {
      * @return A JSONObject containing the structured data from the XML string.
      * @throws JSONException Thrown if there is an errors while parsing the string
      */
-    public static JSONObject toJSONObject(String string, boolean keepStrings) throws JSONException {
+    public static JSONObject toJSONObject(String string, boolean keepStrings) {
         JSONObject jo = new JSONObject();
         XMLTokener x = new XMLTokener(string);
         while (x.more() && x.skipPast("<")) {
@@ -494,7 +493,7 @@ public class XML {
      * @return A string.
      * @throws JSONException Thrown if there is an error parsing the string
      */
-    public static String toString(Object object) throws JSONException {
+    public static String toString(Object object) {
         return toString(object, null);
     }
 
@@ -508,8 +507,7 @@ public class XML {
      * @return A string.
      * @throws JSONException Thrown if there is an error parsing the string
      */
-    public static String toString(Object object, String tagName)
-            throws JSONException {
+    public static String toString(Object object, String tagName) {
         StringBuilder sb = new StringBuilder();
         JSONArray ja;
         JSONObject jo;
