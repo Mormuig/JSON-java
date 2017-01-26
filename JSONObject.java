@@ -1340,7 +1340,7 @@ public class JSONObject {
     }
 
     /**
-     * Creates a JSONPointer using an intialization string and tries to 
+     * Creates a JSONPointer using an initialization string and tries to 
      * match it to an item within this JSONObject. For example, given a
      * JSONObject initialized with this document:
      * <pre>
@@ -1615,7 +1615,7 @@ public class JSONObject {
      * added. If this would not result in a syntactically correct JSON text,
      * then null will be returned instead.
      * <p>
-     * Warning: This method assumes that the data structure is acyclical.
+     * Warning: This method assumes that the data structure is acyclic.
      *
      * @return a printable, displayable, portable, transmittable representation
      *         of the object, beginning with <code>{</code>&nbsp;<small>(left
@@ -1632,9 +1632,9 @@ public class JSONObject {
     }
 
     /**
-     * Make a prettyprinted JSON text of this JSONObject.
+     * Make a pretty-printed JSON text of this JSONObject.
      * <p>
-     * Warning: This method assumes that the data structure is acyclical.
+     * Warning: This method assumes that the data structure is acyclic.
      *
      * @param indentFactor
      *            The number of spaces to add to each level of indentation.
@@ -1665,7 +1665,7 @@ public class JSONObject {
      * result will be quoted.
      *
      * <p>
-     * Warning: This method assumes that the data structure is acyclical.
+     * Warning: This method assumes that the data structure is acyclic.
      *
      * @param value
      *            The value to be serialized.
@@ -1784,7 +1784,7 @@ public class JSONObject {
      * Write the contents of the JSONObject as JSON text to a writer. For
      * compactness, no whitespace is added.
      * <p>
-     * Warning: This method assumes that the data structure is acyclical.
+     * Warning: This method assumes that the data structure is acyclic.
      *
      * @return The writer.
      * @throws JSONException
@@ -1850,7 +1850,7 @@ public class JSONObject {
      * Write the contents of the JSONObject as JSON text to a writer. For
      * compactness, no whitespace is added.
      * <p>
-     * Warning: This method assumes that the data structure is acyclical.
+     * Warning: This method assumes that the data structure is acyclic.
      *
      * @param writer
      *            Writes the serialized JSON
@@ -1912,7 +1912,7 @@ public class JSONObject {
      * If an entry in the object is a JSONArray or JSONObject it will also
      * be converted.
      * <p>
-     * Warning: This method assumes that the data structure is acyclical.
+     * Warning: This method assumes that the data structure is acyclic.
      *
      * @return a java.util.Map containing the entries of this object
      */
