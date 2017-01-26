@@ -93,7 +93,7 @@ public class JSONTokener {
      * @throws JSONException Thrown if trying to step back more than 1 step
      *  or if already at the start of the string
      */
-    public void back() throws JSONException {
+    public void back() {
         if (this.usePrevious || this.index <= 0) {
             throw new JSONException("Stepping back two steps is not supported");
         }
@@ -138,7 +138,7 @@ public class JSONTokener {
      * @throws JSONException thrown if there is an error stepping forward
      *  or backward while checking for more data.
      */
-    public boolean more() throws JSONException {
+    public boolean more() {
         this.next();
         if (this.end()) {
             return false;
@@ -154,7 +154,7 @@ public class JSONTokener {
      * @return The next character, or 0 if past the end of the source string.
      * @throws JSONException Thrown if there is an error reading the source string.
      */
-    public char next() throws JSONException {
+    public char next() {
         int c;
         if (this.usePrevious) {
             this.usePrevious = false;
@@ -193,7 +193,7 @@ public class JSONTokener {
      * @return The character.
      * @throws JSONException if the character does not match.
      */
-    public char next(char c) throws JSONException {
+    public char next(char c) {
         char n = this.next();
         if (n != c) {
             throw this.syntaxError("Expected '" + c + "' and instead saw '" +
@@ -212,7 +212,7 @@ public class JSONTokener {
      *   Substring bounds error if there are not
      *   n characters remaining in the source string.
      */
-     public String next(int n) throws JSONException {
+     public String next(int n) {
          if (n == 0) {
              return "";
          }
@@ -236,7 +236,7 @@ public class JSONTokener {
      * @throws JSONException Thrown if there is an error reading the source string.
      * @return  A character, or 0 if there are no more characters.
      */
-    public char nextClean() throws JSONException {
+    public char nextClean() {
         for (;;) {
             char c = this.next();
             if (c == 0 || c > ' ') {
@@ -257,7 +257,7 @@ public class JSONTokener {
      * @return      A String.
      * @throws JSONException Unterminated string.
      */
-    public String nextString(char quote) throws JSONException {
+    public String nextString(char quote) {
         char c;
         StringBuilder sb = new StringBuilder();
         for (;;) {
@@ -320,7 +320,7 @@ public class JSONTokener {
      * @throws JSONException Thrown if there is an error while searching
      *  for the delimiter
      */
-    public String nextTo(char delimiter) throws JSONException {
+    public String nextTo(char delimiter) {
         StringBuilder sb = new StringBuilder();
         for (;;) {
             char c = this.next();
@@ -343,7 +343,7 @@ public class JSONTokener {
      * @throws JSONException Thrown if there is an error while searching
      *  for the delimiter
      */
-    public String nextTo(String delimiters) throws JSONException {
+    public String nextTo(String delimiters) {
         char c;
         StringBuilder sb = new StringBuilder();
         for (;;) {
@@ -367,7 +367,7 @@ public class JSONTokener {
      *
      * @return An object.
      */
-    public Object nextValue() throws JSONException {
+    public Object nextValue() {
         char c = this.nextClean();
         String string;
 
@@ -416,7 +416,7 @@ public class JSONTokener {
      * @throws JSONException Thrown if there is an error while searching
      *  for the to character
      */
-    public char skipTo(char to) throws JSONException {
+    public char skipTo(char to) {
         char c;
         try {
             long startIndex = this.index;

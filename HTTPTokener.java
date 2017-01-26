@@ -46,7 +46,7 @@ public class HTTPTokener extends JSONTokener {
      * @throws JSONException
      * @return A String.
      */
-    public String nextToken() throws JSONException {
+    public String nextToken() {
         char c;
         char q;
         StringBuilder sb = new StringBuilder();
